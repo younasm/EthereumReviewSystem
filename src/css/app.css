@@ -122,7 +122,7 @@ body {
 }
 
 .jumbotron {
-  background-image: url("/img/travel.jpg");
+  background-image: url("/img/abc.png");
   background-color: #17234E;
   margin-bottom: 0;
   border-radius: 5px 5px 0px 0px !important;
@@ -131,11 +131,12 @@ body {
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
+  color: #ffffff;
 }
 
 #neu::first-letter {
   font-size: 400%;
-  color: rgb(45, 45, 51);
+  color: #ffffff;
 }
 /* 
 #neu{

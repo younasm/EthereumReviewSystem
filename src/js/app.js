@@ -140,7 +140,7 @@ App = {
   uploaddoc: function(){
     const reader = new FileReader();
     reader.onloadend = function() {
-      const ipfs = window.IpfsApi('localhost', 5001) // Connect to IPFS
+      const ipfs = window.IpfsApi('ipfs.infura.io', 5001, {protocol: 'https'}) // Connect to IPFS
       const buf = buffer.Buffer(reader.result) // Convert data into buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
         if(err) {

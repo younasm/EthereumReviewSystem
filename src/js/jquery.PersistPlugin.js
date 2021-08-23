@@ -16,6 +16,7 @@
  * Lesser General Public License for more details.
 */
 
+// var Ipfs = require('../../ipfs-api');
 
 (function ( $ ) {
 	 $.qparams = function(name){
@@ -36,7 +37,7 @@
 		ipfs = new Ipfs();
 	}
     $.loadIPFS = function(hash) {
-		$.getJSON("https://ipfs.io/ipfs/"+hash,function(data) {
+		$.getJSON("https://ipfs.infura.io/"+hash,function(data) {
 				data["ipfs-hash"]=hash;
 				$.each(data,function(i,v) {
 						if(i!="ipfs-hash") {
@@ -47,7 +48,7 @@
 		});
 	};
 	$.fillIPFS = function(hash) {
-		$.getJSON("https://ipfs.io/ipfs/"+hash,function(data) {
+		$.getJSON("https://ipfs.infura.io/"+hash,function(data) {
 				data["ipfs-hash"]=hash;
 				$.each(data,function(i,v) {
 						if(i!="ipfs-hash") {
