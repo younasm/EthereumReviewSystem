@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Blockchain Reviews and Re-Reviews</title>
+  <title>Blockchain Reviews and ReReviews</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
                  <div className="row">
                     <div className="col-lg-8 mx-md-auto">
                        <h1 style="text-align: left;">ETHERUEM REVIEWS</h1>
-                       <p style="text-align: left; font-size:18px" className="lead text-muted">BLOCKCHAIN-POWERED REVIEWS & REWARDS SYSTEM </br> Northeastern University China</p>
+                       <p style="text-align: left; font-size:18px" className="lead text-muted">BLOCKCHAIN-BASED REVIEWS & REWARDS SYSTEM </br> Northeastern University China</p>
                        <!--<p id="neu" style="text-align: left; font-size:18px; font-family: 'Lucida Console', 'Courier New', monospace;" className="lead "> </p>-->
                     </div>
                   </div>
@@ -66,6 +66,7 @@
       <div id="reviewsRow" class="row">
         <!-- Reviews LOAD HERE -->
       </div>
+      
     </div>
   </div>
 
@@ -107,8 +108,8 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Add your reviews</h4>
         </div>
-        <div class="modal-body">
 
+        <div class="modal-body">
           <div class="row">
             <div class="col-lg-12">
               <form>
@@ -121,16 +122,17 @@
                   <textarea type="text" class="form-control vresize" id="review_description" placeholder="Describe your experience" maxlength="255"></textarea>
                 </div>
                 <div class="form-group">
-                  <label style="display:;"  for="memories">Your Memories</label>
-                  <input style="display:;" className="form-control" type="file" name="memories" id="memories" /> </div>
-                  <button style="display:;" type="button" class="btn btn-primary btn-success js-uploaded-hash" data-hash="" onclick="App.uploaddoc(); return false;" style="background-color: #5bc0de; border-color: #5bc0de;">Upload</button>
-                
+                  <label for="memories">Your Memories</label>
+                  <input className="form-control" type="file" name="memories" id="memories" />
+                  <button type="button" class="btn btn-primary btn-success js-uploaded-hash" data-hash="" onclick="App.uploaddoc(); return false;" style="background-color: #5bc0de; border-color: #5bc0de; margin-top: 10px;">Upload</button>
+                </div>
               </form>
             </div>
           </div>
         </div>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary btn-success" data-dismiss="modal" onclick="App.addReview(); return false;" style="background-color: #5bc0de; border-color: #5bc0de;">Submit</button>
+          <button type="button" class="btn btn-primary btn-success submit" data-dismiss="modal" onclick="App.addReview(); return false;" style="background-color: #5bc0de; border-color: #5bc0de;">Submit</button>
           <button type="button" class="btn" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -141,7 +143,7 @@
   <div id="footer" class="container">
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="navbar-inner navbar-content-center text-center">
-        <p class="text-muted" credit><a href="https://younas.netlify.app/">M Younas</a> - &copy; 2021 - <a href="https://github.com/muhammadYunas" class="fa fa-github" aria-hidden="true"></a></p>
+        <p class="text-muted" credit><a href="https://younas.netlify.app/">M Younas</a> - &copy; 2021 - <a href="https://github.com/younasm" class="fa fa-github" aria-hidden="true"></a></p>
 
       </div>
     </nav>

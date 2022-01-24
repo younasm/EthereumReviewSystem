@@ -11,6 +11,7 @@ App = {
   initWeb3: function() {
     // Initialize web3 and set the provider to the testRPC.
     if (typeof web3 !== 'undefined') {
+      // if a Web3 instance is already provided by MetaMask
       App.web3Provider = web3.currentProvider;
       web3 = new Web3(web3.currentProvider);
     } else {
@@ -76,7 +77,7 @@ App = {
         var productId = productIds[i];
         
         reReviewInstance.reviews(productId.toNumber()).then(function(product) {
-          console.log("product details are ", product);
+          console.log("product details are retrived from Blockchain ", product);
           App.displayReview(
             product[0],
             product[1],
@@ -111,7 +112,7 @@ App = {
 
     reviewTemplate.find('.review-rewards').text(web3.fromWei(rewards, "ether") + " ETH");
     reviewTemplate.find('.btn-buy').attr('data-id', id);
-    reviewTemplate.find('.btn-buy').attr('data-value', 0.0001);
+    reviewTemplate.find('.btn-buy').attr('data-value', 0.00001);
     let url = `https://ipfs.io/ipfs/${hash}`;
 
     reviewTemplate.find('.js-image-url').attr("src", url);
@@ -141,6 +142,7 @@ App = {
     const reader = new FileReader();
     reader.onloadend = function() {
       const ipfs = window.IpfsApi('ipfs.infura.io', 5001, {protocol: 'https'}) // Connect to IPFS
+      console.log('ipfs-connection', ipfs);
       const buf = buffer.Buffer(reader.result) // Convert data into buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
         if(err) {
@@ -167,7 +169,7 @@ App = {
     var _hashval = $(".js-uploaded-hash").attr("data-hash");
     console.log("Hash value is ", _hashval);
     if ((_review_name.trim() == '')) {
-      // nothing to sell
+      // nothing to sellllll
       return false;
     }
 
@@ -193,9 +195,9 @@ App = {
         toBlock: 'latest'
       }).watch(function(error, event) {
         if(!error){
-          $("#events").append('<li class="list-group-item">' + event.args._name + ' is for Review' + '</li>');
+          $("#events").append('<li class="list-group-item">' + '<b>' + event.args._name + '</b>' + ' is for Review' + ' from ' + '<b>' + event.args._reviewer + '</b>' + '</li>');
         } else {
-          console.error(error);
+          // console.error(error);
         }
         App.reloadReviews();
       });
@@ -205,9 +207,9 @@ App = {
         toBlock: 'latest'
       }).watch(function(error, event) {
         if(!error){
-          $("#events").append('<li class="list-group-item">' + event.args._buyer + ' Reviewed ' + event.args._name + '</li>');
+          $("#events").append('<li class="list-group-item">' + '<b>' + event.args._visitor + '</b>' + ' Reviewed '+ '<b>' + event.args._name + '</b>' + '</li>');
         } else {
-          console.error(error);
+          // console.error(error);
         }
         App.reloadReviews();
       });
@@ -215,11 +217,12 @@ App = {
   },
 
   viewReview: function(flag) {
-    console.log("flag value is flag",flag);
+    console.log("flag value is = ",flag);
+    
     event.preventDefault();
-// debugger
-//     var flag = $(this).attr("data-flag");
-//     console.log("flag value is ", flag);
+    // debugger
+    //     var flag = $(this).attr("data-flag");
+    //     console.log("flag value is ", flag);
     var upvote = 0;
     var downvote = 0;
     if(flag =="downflag"){
@@ -236,7 +239,7 @@ App = {
     App.contracts.ReReviews.deployed().then(function(instance) {
       return instance.viewReview(_reviewId, upvote, downvote, {
         from: App.account,
-        value: web3.toWei(0.0001, "ether"),
+        value: web3.toWei(0.00001, "ether"),
         gas: 500000
       });
     }).then(function(result) {

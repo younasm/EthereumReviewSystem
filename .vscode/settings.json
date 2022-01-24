@@ -1,5 +1,6 @@
 {
     "editor.fontLigatures": null,
-    "solidity.compileUsingRemoteVersion": "v0.4.11+commit.68ef5810"
+    "solidity.compileUsingRemoteVersion": "v0.4.11+commit.68ef5810",
+    "git.ignoreLimitWarning": true
 
 }

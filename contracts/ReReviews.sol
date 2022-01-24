@@ -59,6 +59,14 @@ contract ReReviews is Owned {
         _ipfsHash
       );
 
+    // restricting the person who already upvoted
+    // require(!reviews[msg.sender]);
+
+    // require that the upvoter or downvoter is casted to a valid review
+    // require(id > 0 && id <= reviewCounter);
+
+
+
     // trigger the event
     emit addReviewEvent(reviewCounter, msg.sender, _name, _ipfsHash);
   }
@@ -97,7 +105,7 @@ contract ReReviews is Owned {
   }
 
   // View a review & upvote/downvote it
-  function viewReview(uint _id,uint _totalUp, uint _totalDown) payable public {
+  function viewReview(uint _id,uint _totalUp, uint _totalDown) payable public { 
     // we check whether there is at least one review
     require(reviewCounter > 0);
     // we check whether the review exists
@@ -114,8 +122,6 @@ contract ReReviews is Owned {
       review.totalRewards = review.totalRewards - msg.value;
     }
     
-    // we check whether the article has not already been sold
-    //require(article.buyer == 0x0);
 
     // we don't allow the reviewer to upvote/downvote his own reviews
     require(review.reviewer != msg.sender);
@@ -125,7 +131,8 @@ contract ReReviews is Owned {
 
     // the visitor can review the Reviews
     review.reviewer.transfer(msg.value);
-    // address payable reviewPayable = payable(address(review.reviewer));
+    
+    // address payable reviewPayable = address(review.reviewer);
     // reviewPayable.transfer(msg.sender);
 
     // trigger the event

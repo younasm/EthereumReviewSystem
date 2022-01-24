@@ -5,16 +5,8 @@
 * Muhammad Younas - https://www.linkedin.com/in/m-younas-8a0322178/
 
 # GitHub Page
- Local instance of (https://github.com/muhammadYunas/EthereumReviewSystem/)
- 
-# Youtube Link for Video Demonstration
-  https://www.youtube.com/watch?v=cTzEoCjJRQM
+ Local instance of (https://github.com/younasm/EthereumReviewSystem/)
 
-# PowerPoint Presentation
-  https://www.slideshare.net/shishiragrawal5/ethexplorer
-
-# Inspiration:
-* ETHIndia Hackathon
 
 # What it does:
 * Any users, will be able to submit their reviews on any products/services.- They will be represented as Reviewers.
@@ -24,8 +16,8 @@
 * Reviewers cannot upvote/downvote their own reviews, which helps eliminate fake review counts
 
 # STEPS to Install / Setup
-1) Clone the repositories https://github.com/muhammadYunas/EthereumReviewSystem.git using following command
-git clone https://github.com/muhammadYunas/EthereumReviewSystem.git
+1) Clone the repositories https://github.com/younasm/EthereumReviewSystem.git using following command
+git clone https://github.com/younasm/EthereumReviewSystem.git
 2) do run "npm install" command to ensure node packages are up-to-date & in sync
 3) Ensure you have "Ganache" & It is running status
 4) Ensure you have "MetaMask" extensions added into chrome & enabled custom RPC to sync the accounts with Ganache
@@ -59,7 +51,5 @@ git clone https://github.com/muhammadYunas/EthereumReviewSystem.git
 * It helps service provider to get the reviews from our Decentralized System & integrate that into their centralized system which will eliminate fake reviews.
 * Since, users are being rewarded, increase in customer genuine reviews will be more,so platform(Smart contract) address will transfer ethers to respective reviewers.
 * To Integrate "DAI" framework, which will helps user to conver ether into DAI and exchange at any point of time. Since 1DAI = 1$
-
-Snapshot-
 
 

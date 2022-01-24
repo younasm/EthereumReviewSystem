@@ -1,5 +1,5 @@
-var MarketPlace = artifacts.require("./ReReviews.sol");
+var Rereview = artifacts.require("./ReReviews.sol");
 
 module.exports = function(deployer){
-  deployer.deploy(MarketPlace);
+  deployer.deploy(Rereview);
 }
