@@ -12,6 +12,17 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script
+  src="https://www.jsdelivr.com/package/npm/ipfs-http-client"
+  integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+  crossorigin="anonymous"
+></script>
+<!-- for ipfs image upload -->
+<script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
+ integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+ crossorigin="anonymous"></script>
+  <!-- <script src="https://wzrd.in/standalone/buffer"></script> -->
+  
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,21 +43,21 @@
         <section className="search-section home-search">
             <div className="masthead text-center">
                <div className="container">
-                 <div className="row">
-                    <div className="col-lg-8 mx-md-auto">
+                  <div className="row">
+                    <div className="col-lg-12 mx-md-auto">
                        <h1 style="text-align: left;">ETHERUEM REVIEWS</h1>
                        <p style="text-align: left; font-size:18px" className="lead text-muted">BLOCKCHAIN-BASED REVIEWS & REWARDS SYSTEM </br> Northeastern University China</p>
                        <!--<p id="neu" style="text-align: left; font-size:18px; font-family: 'Lucida Console', 'Courier New', monospace;" className="lead "> </p>-->
                     </div>
                   </div>
-                </div>
               </div>
+            </div>
          </section>
     </div>
 
     <div class="col-md-12" id="review-list">
       <div class="row">
-        <div class="col-lg-12" style="background-color: #677083 !important;color: white; margin-bottom: 21px">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #677083 !important;color: white; margin-bottom: 21px">
           <p id="account" class="welcome pull-right" style="padding-top: 11px;"></p>
           <p id="accountBalance" class="welcome pull-left" style="padding-top: 11px;"></p>
         </div>
@@ -83,9 +94,11 @@
                 <strong>Upvotes</strong>: <span class="review-upvotes"></span><br/>
                 <strong>Rewards</strong>: <span class="review-rewards"></span><br/>
                 <strong>Downvotes</strong>: <span class="review-downvotes"></span><br/>
+                <!-- <strong>Rating</strong>: <span class="review-rating"></span><br/> -->
             </div>
             <div class="col-sm-9 col-md-6">
-              <img src="" class="js-image-url" align="right" alt="" height="111" width="116" /> 
+              <!-- class="js-image-url" has changed to class="-js-image-url" for image issue  and src was empty but put image link-->
+              <img src="" class="js-image-url" align="right" alt="image not found" height="111" width="116" /> 
             </div>
 
 
@@ -121,10 +134,20 @@
                   <label for="description">Comments</label>
                   <textarea type="text" class="form-control vresize" id="review_description" placeholder="Describe your experience" maxlength="255"></textarea>
                 </div>
+                <!-- <div class="form-group">
+                  <label for="description">Rating</label>
+                  <select name="rating" id="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div> -->
                 <div class="form-group">
-                  <label for="memories">Your Memories</label>
+                  <label for="memories">Upload Image</label>
                   <input className="form-control" type="file" name="memories" id="memories" />
-                  <button type="button" class="btn btn-primary btn-success js-uploaded-hash" data-hash="" onclick="App.uploaddoc(); return false;" style="background-color: #5bc0de; border-color: #5bc0de; margin-top: 10px;">Upload</button>
+                  <button type="button" class="btn btn-primary btn-success js-uploaded-hash" data-hash="" onclick="App.uploaddoc(); return false; "style="background-color: #5bc0de; border-color: #5bc0de; margin-top: 10px;">Upload</button>
                 </div>
               </form>
             </div>
@@ -155,9 +178,7 @@
   <script src="js/jquery.PersistPlugin.js"></script>
   <script src="js/Buffer.js"></script>
   <script src="https://unpkg.com/ipfs-api/dist/index.min.js"></script>
-  <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
- integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
- crossorigin="anonymous"></script>
+  
 
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>

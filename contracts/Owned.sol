@@ -1,17 +1,17 @@
 pragma solidity >=0.4.11;
 
 contract Owned {
-  // State variables
-  address payable owner;
+    // State variables
+    address payable owner;
 
-  //modifiers
-  modifier onlyOwner() {
-    require(msg.sender == owner);
-    _;
-  }
+    //modifiers
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
 
-  // constructor
-  constructor() public{
-    owner = msg.sender;
-  }
+    // constructor
+    constructor() public {
+        owner = msg.sender;
+    }
 }

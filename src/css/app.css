@@ -17,7 +17,8 @@ body {
   padding: 5px;
 }
 
-.page .search-section, .page .page-header {
+.page .search-section,
+.page .page-header {
   padding: 30px;
 }
 
@@ -39,7 +40,6 @@ body {
   font-weight: 900;
   font-size: 60px;
 }
-
 
 @media (max-width: 1031px) {
   .masthead h1 {
@@ -100,12 +100,13 @@ body {
   transition: background-color 500ms ease-out 0.2s;
 }
 
-
-.page .search-section h1, .page .page-header h1 {
+.page .search-section h1,
+.page .page-header h1 {
   font-size: 28px;
 }
 
-.page .search-section h1 small, .page .page-header h1 small {
+.page .search-section h1 small,
+.page .page-header h1 small {
   background: #03a9f4;
   color: #fff;
   font-size: 14px;
@@ -115,15 +116,15 @@ body {
 }
 
 .search-section {
-  background-color: #F5F8FA;
+  background-color: #f5f8fa;
   position: relative;
   border-bottom: 1px solid #e1e8ee;
   border-top: 1px solid #e1e8ee;
 }
 
 .jumbotron {
-  background-image: url("/img/abc.png");
-  background-color: #17234E;
+  background-image: url("/img/background.png");
+  background-color: #17234e;
   margin-bottom: 0;
   border-radius: 5px 5px 0px 0px !important;
   min-height: 50%;

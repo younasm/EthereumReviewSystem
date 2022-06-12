@@ -16,7 +16,7 @@ App = {
       web3 = new Web3(web3.currentProvider);
     } else {
       // set the provider you want from Web3.providers
-      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+      App.web3Provider = new Web3.providers.HttpProvider("HTTP://127.0.0.1:7545");
       web3 = new Web3(App.web3Provider);
     }
     App.displayAccountInfo();
@@ -24,6 +24,7 @@ App = {
   },
 
   displayAccountInfo: function() {
+    // getCoinbase will return the currently logged in account details
     web3.eth.getCoinbase(function(err, account) {
       if (err === null) { 
         App.account = account;
@@ -53,6 +54,7 @@ App = {
     });
   },
 
+  // load review on browser from blockchain
   reloadReviews: function() {
     // avoid reentry
     if (App.loading) {
@@ -73,6 +75,7 @@ App = {
       var reviewsRow = $('#reviewsRow');
       reviewsRow.empty();
 
+      // the for loop will loop until the productIds reach
       for (var i = 0; i < productIds.length; i++) {
         var productId = productIds[i];
         
@@ -97,6 +100,7 @@ App = {
     });
   },
 
+  // show review on browser
   displayReview: function(id, seller, name, description,upvotes,rewards,downvotes,hash) {
     // Retrieve the review placeholder
     var reviewsRow = $('#reviewsRow');
@@ -141,19 +145,23 @@ App = {
   uploaddoc: function(){
     const reader = new FileReader();
     reader.onloadend = function() {
-      const ipfs = window.IpfsApi('ipfs.infura.io', 5001, {protocol: 'https'}) // Connect to IPFS
-      console.log('ipfs-connection', ipfs);
-      const buf = buffer.Buffer(reader.result) // Convert data into buffer
+      const ipfs = window.IpfsApi({host: 'ipfs.infura.io', port: 5001, protocol: 'https'}) // Connect to IPFS
+
+      console.log('ipfs-connection', ipfs); // checking ipfs connection
+
+      const buf = buffer.Buffer(reader.result) // Convert to buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
-        if(err) {
-          console.error(err)
-          swal("Error", "Something went wrong!", "error");
-          return
-        }
-        let url = `https://ipfs.io/ipfs/${result[0].hash}`
-        console.log(`Url --> ${url}`)
-        $(".js-uploaded-hash").attr("data-hash", result[0].hash);
-        swal("Document Uploaded!", "Thanks for choosing us!", "success");
+      if(err) {
+        console.error(err)
+        swal("Error", "Something went wrong!", "error");
+        return
+      }
+      let url = `https://ipfs.io/ipfs/${result[0].hash}`;
+
+      console.log(`Url --> ${url}`);
+
+      $(".js-uploaded-hash").attr("data-hash", result[0].hash);
+      swal("Document Uploaded!", "Thanks for choosing us!", "success");
       })
     }
     const photo = document.getElementById("memories");
@@ -167,7 +175,9 @@ App = {
     var _review_name = $("#review_name").val();
     var _description = $("#review_description").val();
     var _hashval = $(".js-uploaded-hash").attr("data-hash");
+
     console.log("Hash value is ", _hashval);
+
     if ((_review_name.trim() == '')) {
       // nothing to sellllll
       return false;
@@ -187,7 +197,7 @@ App = {
     });
   },
 
-  // Listen for events raised from the contract
+  // Listen for events raised from the contract (LOG)
   listenToEvents: function() {
     App.contracts.ReReviews.deployed().then(function(instance) {
       instance.addReviewEvent({}, {
@@ -216,6 +226,7 @@ App = {
     });
   },
 
+  // Upvote and Downvote review
   viewReview: function(flag) {
     console.log("flag value is = ",flag);
     

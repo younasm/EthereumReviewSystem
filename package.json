@@ -12,11 +12,12 @@
   },
   "author": "Younas",
   "license": "ISC",
-  "devDependencies":{
+  "devDependencies": {
     "lite-server": "^2.3.0"
   },
   "dependencies": {
-    "ipfs-api": "^26.1.2",
+    "buffer": "^6.0.3",
+    "ipfs-http-client": "^57.0.1",
     "jquery": "^3.6.0"
   }
 }
